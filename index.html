@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Theremin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="start-screen">
+        <button id="start-button">Start Theremin</button>
+    </div>
+
+    <main id="app-container" class="hidden">
+        <h1>AI Web Theremin</h1>
+        <!-- UPDATED INSTRUCTIONS -->
+        <div class="instructions">
+            <p><strong>Right Hand (Openness):</strong> Pitch | <strong>Left Hand (Vertical):</strong> Volume | <strong>Left Hand (Pinch):</strong> Wah Effect</p>
+        </div>
+
+        <div id="video-container">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="overlayCanvas"></canvas>
+            <div id="loading">
+                <p>Loading AI Model...</p>
+            </div>
+        </div>
+
+        <!-- UPDATED STATUS PANEL -->
+        <div id="status-panel">
+            <span>Pitch: <strong id="pitch-display">---</strong></span>
+            <span>Vol: <strong id="vol-display">---</strong></span>
+            <span>Wah: <strong id="wah-display">OFF</strong></span>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="scale-select">Scale:</label>
+                <select id="scale-select">
+                    <option value="pentatonic">C Major Pentatonic</option>
+                    <option value="major">C Major</option>
+                    <option value="minor">C Minor</option>
+                    <option value="blues">C Blues</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="waveform-select">Waveform:</label>
+                <select id="waveform-select">
+                    <option value="sine">Sine (Flute)</option>
+                    <option value="square">Square (8-bit)</option>
+                    <option value="sawtooth">Sawtooth (Synth)</option>
+                    <option value="triangle">Triangle (Smooth)</option>
+                </select>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm/vision_wasm_internal.js" crossorigin="anonymous"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

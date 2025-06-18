@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #121212;
+    --primary-color: #1e1e1e;
+    --secondary-color: #2a2a2a;
+    --text-color: #e0e0e0;
+    --accent-color: #03dac6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.instructions {
+    background-color: var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#video-container {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* Mirror view for natural interaction */
+}
+
+#overlayCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.controls {
+    display: flex;
+    gap: 25px;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: 400;
+}
+
+select, input[type="checkbox"] {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    padding: 5px;
+    font-family: inherit;
+}
+
+select {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+#status-panel {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    background-color: var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+#status-panel strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+#wah-display.active {
+    color: #ff5252; /* A different color when active */
+    font-weight: 700;
+}
